@@ -3,16 +3,24 @@ import history from "../history";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import { SET_CURRENT_USER, LOGOUT_USER } from "./types";
+import Swal from "sweetalert2";
 
 // Register User
 export const registerUser = userData => () => {
   console.log("Register", userData);
   axios
     .post("/api/users/register", userData)
-    .then(
-      res => console.log("Front End response", res),
-      history.push("/login") // re-direct to login on successful register
-    )
+    .then(res => {
+      console.log("Front End response", res);
+      {
+        res.data.email === "Email already exists"
+          ? Swal.fire({
+              icon: "error",
+              title: res.data.email
+            })
+          : history.push("/login"); // re-direct to login on successful register
+      }
+    })
     .catch(err => console.log("error", err));
 };
 
