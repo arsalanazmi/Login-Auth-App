@@ -41,7 +41,7 @@ export const loginUser = userData => dispatch => {
       const decoded = jwt_decode(token);
       // Set current user
       dispatch(setCurrentUser(decoded));
-      // history.push("/dashboard");
+      history.push("/dashboard");
     })
     .catch(err => console.log(err));
 };
@@ -62,7 +62,7 @@ export const logoutUser = () => dispatch => {
   // setAuthToken(false);
   // Set current user to empty object {} which will set isAuthenticated to false
   dispatch(signOutUser());
-  // history.push("/login");
+  history.push("/login");
 };
 
 // Set logged out user
