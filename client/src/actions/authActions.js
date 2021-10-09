@@ -2,10 +2,10 @@ import axios from "axios";
 import history from "../history";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
-import { SET_CURRENT_USER } from "./types";
+import { SET_CURRENT_USER, LOGOUT_USER } from "./types";
 
 // Register User
-export const registerUser = userData => dispatch => {
+export const registerUser = userData => () => {
   console.log("Register", userData);
   axios
     .post("/api/users/register", userData)
@@ -49,10 +49,17 @@ export const setCurrentUser = decoded => {
 // Log user out
 export const logoutUser = () => dispatch => {
   // Remove token from local storage
-  localStorage.removeItem("jwtToken");
+  localStorage.clear();
   // Remove auth header for future requests
   setAuthToken(false);
   // Set current user to empty object {} which will set isAuthenticated to false
-  dispatch(setCurrentUser({}));
-  history.push("/login");
+  dispatch(signOutUser());
+  // history.push("/login");
+};
+
+// Set logged out user
+export const signOutUser = () => {
+  return {
+    type: LOGOUT_USER
+  };
 };

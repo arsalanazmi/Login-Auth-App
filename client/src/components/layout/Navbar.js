@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="navbar-fixed">
-      <nav className="z-depth-0">
-        <div className="nav-wrapper white">
+      <nav className="z-depth-2">
+        <div className="nav-wrapper #263238 blue-grey darken-4">
           <Link
             to="/"
             style={{
               fontFamily: "monospace"
             }}
-            className="col s5 brand-logo center black-text"
+            className="col s5 brand-logo center white-text"
           >
             <i className="material-icons">code</i>
-            MERN 
+            MERN
           </Link>
         </div>
       </nav>
