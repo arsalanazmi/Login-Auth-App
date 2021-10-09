@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import "materialize-css/dist/css/materialize.min.css";
-// import M from "materialize-css/dist/js/materialize.min.js";
 import { Router, Route, Switch } from "react-router-dom";
 import history from "./history";
 import jwt_decode from "jwt-decode";
@@ -22,7 +21,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 if (localStorage.jwtToken) {
   // Set auth token header auth
   const token = localStorage.jwtToken;
-  setAuthToken(token);
+  // setAuthToken(token);
   // Decode token and get user info and exp
   const decoded = jwt_decode(token);
   // Set user and isAuthenticated
