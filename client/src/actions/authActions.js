@@ -1,6 +1,6 @@
 import axios from "axios";
 import history from "../history";
-import setAuthToken from "../utils/setAuthToken";
+// import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import { SET_CURRENT_USER, LOGOUT_USER } from "./types";
 import Swal from "sweetalert2";

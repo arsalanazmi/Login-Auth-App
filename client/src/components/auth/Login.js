@@ -21,7 +21,7 @@ const Login = () => {
         .required("Required"),
       password: Yup.string().required("Required")
     }),
-    onSubmit: (values, actions) => {
+    onSubmit: (values) => {
       const userData = {
         email: values.email,
         password: values.password
@@ -29,13 +29,6 @@ const Login = () => {
       console.log("User Login Data", userData);
 
       dispatch(loginUser(userData));
-
-      actions.resetForm({
-        values: {
-          email: "",
-          password: ""
-        }
-      });
     }
   });
 

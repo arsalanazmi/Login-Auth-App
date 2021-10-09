@@ -53,7 +53,7 @@ const Register = props => {
         "Passwords must match"
       )
     }),
-    onSubmit: (values, actions) => {
+    onSubmit: (values) => {
       const newUser = {
         firstName: values.firstName,
         lastName: values.lastName,
@@ -67,19 +67,6 @@ const Register = props => {
       console.log("New User", newUser);
 
       dispatch(registerUser(newUser));
-
-      actions.resetForm({
-        values: {
-          firstName: "",
-          lastName: "",
-          gender: "",
-          phone: "",
-          dob: "",
-          email: "",
-          password: "",
-          confirmPassword: ""
-        }
-      });
     }
   });
 
