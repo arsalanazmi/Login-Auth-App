@@ -14,11 +14,11 @@ export const registerUser = userData => () => {
       console.log("Front End response", res);
       {
         res.data.message
-          ? Swal.fire({
+          ? (Swal.fire({
               icon: "error",
               title: res.data.message
-            })
-          : history.push("/login"); // re-direct to login on successful register
+            }))
+          : (history.push("/login")); // re-direct to login on successful register
       }
     })
     .catch(err => console.log("error", err));
