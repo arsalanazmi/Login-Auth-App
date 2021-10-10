@@ -13,10 +13,10 @@ export const registerUser = userData => () => {
     .then(res => {
       console.log("Front End response", res);
       {
-        res.data.email === "Email already exists"
+        res.data.message
           ? Swal.fire({
               icon: "error",
-              title: res.data.email
+              title: res.data.message
             })
           : history.push("/login"); // re-direct to login on successful register
       }
